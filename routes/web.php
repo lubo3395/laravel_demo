@@ -39,5 +39,5 @@ Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy')
 //  销毁会话(退出登录)
  Route::delete('logout', 'SessionsController@destroy')->name('logout');
 
-
+Route::get('signup/confirm/{token}', 'UsersController@confirmEmail')->name('confirm_email');
  
