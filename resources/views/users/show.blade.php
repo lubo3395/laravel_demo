@@ -10,9 +10,16 @@
                     {{-- 可以通过给 @include 方法传参，将用户数据以关联数组的形式传送到 _user_info 局部视图上 --}}
                     @include('shared._user_info', ['user' => $user])
                 </section>
+                <section class="stats">
+                    @include('shared._stats', ['user' => $user])
+                </section>
             </div>
         </div>
         <div class="col-md-12">
+            @if (Auth::check())
+                @include('users._follow_form')
+            @endif
+
             @if (count($statuses) > 0)
                 <ol class="statuses">
                     @foreach ($statuses as $status)
